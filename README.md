@@ -18,14 +18,7 @@ HQS.digital(input data = inputlist, timeunit = ‘h’, timeunit_n = ‘1’, di
 
 ## Ongoing
 - [x] Defining quantification data and features
-- [x] Data Pre-processing
 - [x] 
-- [x] Featurization
-- [x] Modify Network
-- [x] Training
-- [x] Evaluation
-- [ ] Prepare live demo
-
 
 ```
 
