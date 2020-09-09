@@ -28,4 +28,4 @@ for fnm in fnms:
         inputlist += make_inputlist('testfolder\\'+fnm)
 
 result = HQS.digital (inputlist, 'h', 8, 'section','dayofweek', '_mean')
-result['grp40']
+result['grp70'] # or 'result'
