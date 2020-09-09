@@ -166,19 +166,25 @@ Examples
 ### Variables Printing Fuction
 
 #### 1. list2xl
-
 #### 2. dic2xl
-
 #### 3. var2xl
-
-#### 4. ipt2xl
-
+#### 4. ipt2x1
 #### 5. grp2xl
 
 
 ## Test example
 
-
+**Output variables**
+#### dic01: {date: {datetime, [input data])}
+#### dic02: {date: [['category, 'appname', time of day, usage time, packagename, foreground, background],,,],,} 
+#### dic03: Classify
+#### dic04: 
+#### dic05: 
+#### dic06: 
+#### ipt01:
+#### grp10:
+#### grp20:
+#### grp21:
 
 ### End-to-End test
 
