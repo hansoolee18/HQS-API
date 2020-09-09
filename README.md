@@ -1,6 +1,6 @@
-# HQS API
+# HQS API: HQS automation module for quantification of user types
 
-HQS automation module for quantification of user types
+HQS API that grasps the user's foreground app usage time event in real time, classifies what category each app is in, calculates the total amount of usage time for each category, and compares it with the reference value of 80 users
 
 ## Function Description
 ### Built-in Functions
