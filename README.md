@@ -5,40 +5,40 @@ HQS automation module for quantification of user types
 ## Function Description
 ### Built-in Functions
 
-1. [findctg]
+#### 1. findctg
 
 * A function to classify categories by package name
 
-2. [delovr]
+#### 2. delovr
 
 * Excluding duplicate elements in the list
 
-3. [che_time]
+#### 3. che_time
 
 * Entering the number of timestamp returns a datetime object with year, month, day, hour, and minute information.
 
-4. [oclock]
+#### 4. oclock
 
 * If you enter the year, month, day, hour, and minute, it will be converted to a number in a timestamp format.
 
-5. [che_wday]
+#### 5. che_wday
 
 * Entering an 8-digit string as a string returns the day of the week
 
-6. [statistic]
+#### 6. statistic
 
 * Putting in a list returns the sum, average, maximum, minimum, and median values ​​based on the elements of the list. Total is used when calculating percentage option
 
-7. [sumproduct]
+#### 7. sumproduct
 
 * It is used to make a group from the standard HQS value data and calculate the weighted average for each group.
 
-8. [make_s_week]
+#### 8. make_s_week
 * Used to create 's_week0' ~ 's_week6' variables from standard data for each day of the week
 
 ### Output Functions
 
-7. [finding]
+#### 1. finding
 
   It is a function that informs the time zone and date in which the input data was recorded, and is necessary to facilitate the user's parameter setting.
 
@@ -58,7 +58,7 @@ Examples
 >>> [['DATE', '0시', '1시', '2시', '3시', '4시', '5시', '6시', '7시', '8시', '9시', '10시', '11시', '12시', '13시', '14시', '15시', '16시', '17시', '18시', '19시', '20시', '21시', '22시', '23시'], [20190516, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32.0843499938647, 49.57675000031788, 10.33324999809265, 37.07876663605373, 13.894100010395045, 3.6712499936421708, 33.336099986235304, 11.578566666444141, 16.713666713237767, 17.198833362261457, 15.619833342234296, 10.405233319600425, 13.398050010204319, 3.4780499935150146, 6.409583334128062],,,]
 ```
 
-8. [misscategory]
+#### 8. misscategory
 
 If the package name of inputdata does not include the package name of the category list, it is classified as unclassified.
 
@@ -82,7 +82,7 @@ Examples
  ['missing', '동영상 다운로더', 'video.downloader.videodownloader'],,,]
 ```
 
-9. [digital]
+#### 9. digital
 
 When input data comes in, a function that compares each app name and package name with the existing app category list of 80 users, gives statistics of usage time by category according to the set time and number of days after matching, and compares it with the standard value of 80 app categories
 ```
@@ -130,7 +130,7 @@ Examples
  'Total': {'compare': 0.74, 'input': 2255.15, 'standard': 3064.17}}
 ```
 
-10. [social]
+#### 10. social
 
 ```
 social(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', comparisonvaluetype='timeofday', 
@@ -165,15 +165,15 @@ Examples
 
 ### Variables Printing Fuction
 
-1. [list2xl]
+#### 1. list2xl
 
-2. [dic2xl]
+#### 2. dic2xl
 
-3. [var2xl]
+#### 3. var2xl
 
-4. [ipt2xl]
+#### 4. ipt2xl
 
-5. [grp2xl]
+#### 5. grp2xl
 
 
 ## Test example
