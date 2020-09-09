@@ -58,7 +58,7 @@ Examples
 >>> [['DATE', '0시', '1시', '2시', '3시', '4시', '5시', '6시', '7시', '8시', '9시', '10시', '11시', '12시', '13시', '14시', '15시', '16시', '17시', '18시', '19시', '20시', '21시', '22시', '23시'], [20190516, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32.0843499938647, 49.57675000031788, 10.33324999809265, 37.07876663605373, 13.894100010395045, 3.6712499936421708, 33.336099986235304, 11.578566666444141, 16.713666713237767, 17.198833362261457, 15.619833342234296, 10.405233319600425, 13.398050010204319, 3.4780499935150146, 6.409583334128062],,,]
 ```
 
-#### 8. misscategory
+#### 2. misscategory
 
 If the package name of inputdata does not include the package name of the category list, it is classified as unclassified.
 
@@ -82,7 +82,7 @@ Examples
  ['missing', '동영상 다운로더', 'video.downloader.videodownloader'],,,]
 ```
 
-#### 9. digital
+#### 3. digital
 
 When input data comes in, a function that compares each app name and package name with the existing app category list of 80 users, gives statistics of usage time by category according to the set time and number of days after matching, and compares it with the standard value of 80 app categories
 ```
@@ -130,7 +130,7 @@ Examples
  'Total': {'compare': 0.74, 'input': 2255.15, 'standard': 3064.17}}
 ```
 
-#### 10. social
+#### 4. social
 
 ```
 social(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', comparisonvaluetype='timeofday', 
