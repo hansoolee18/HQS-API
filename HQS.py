@@ -1,23 +1,25 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 import time
 import openpyxl
 from openpyxl import Workbook 
 from datetime import datetime, timedelta
 import numpy
 
+# Category classification by package name
 def findctg (app,pkg):
     try : rst = pkgs[pkg.lower().replace(' ','').replace('\t','')]
     except : rst = '카테고리 미분류'
     return rst
 
+# Excluding duplicate elements in the list
 def delovr(list1):
     list2 = list(set(list1))
     list2.sort() 
     return list2
 
+# Entering a number of timestamp returns the datetime object containing year, month, day, hour, and minute information
 def che_time(sectime, num=1):
     lotime = time.localtime(sectime)
     y,m1,d,h,m2,s, w = \
@@ -37,6 +39,7 @@ def che_time(sectime, num=1):
     midn_time= (datetime(y,m1,d,23,59,59)-datetime(1970,1,1)).total_seconds()+1
     return t, midn_time
 
+# Entering year, month, day, hour, and minute changes to a number in timestamp format
 def oclock(y,m,d,h):
     rst = (datetime(y,m,d,h,59,59)-datetime(1970,1,1)).total_seconds()+1
     return rst-(3600*9)
@@ -101,6 +104,8 @@ def hourwiselist(mmr, ipt):
                     rst.append([ctg, mmr[1],i,usemin,pkgnm,mmr[0],ipt[0]])
     return rst    
 
+# Inserting a list returns sum, average, maximum, minimum, 
+# and median values based on the elements of the list. The sum is used when calculating the percentage option.
 def statistic(list1):
     list_usetime = [_ for _ in list1 if _!=0 ]
     if list_usetime == []:
@@ -115,7 +120,7 @@ def statistic(list1):
         rst = [list1, sumv, avrg, med,maxv,minv]
     return rst 
 
-
+# It is used to create a group from the baseline data and calculate the weighted average for each group
 def sumproduct(aa) :
     usetime , cnt =  0,0
     for a in aa:
@@ -126,13 +131,14 @@ def sumproduct(aa) :
     else:  rst = usetime/cnt
     return rst
 
-
+# Entering an 8-digit string as a string returns 'day of the week'
 def che_wday(date):
     weekdayeng= ['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun']
     weekdaykor= ['월', '화', '수', '목', '금','토','일']
     idx = datetime(int(date[:4]), int(date[5:6]),int(date[6:])).weekday()
     return (idx, weekdayeng[idx], weekdaykor[idx])
 
+#s_week0 ~ s_week6 variables are created using standard data for each day of the week
 def make_s_week(standard_week0  ):
     s_week0 = {}
     for ctg_name in grp21.keys(): #---- None값은 0으로 처리
@@ -146,6 +152,7 @@ def make_s_week(standard_week0  ):
                 s_week0[ctg_name][hour]  = add
     return  s_week0 
 
+# a function that selects the package name of input data that is not in the category list and classifies it as unclassified
 def miscategory(inputlist):
     dic01 = makedic01(inputlist)
     missing = []
@@ -156,6 +163,7 @@ def miscategory(inputlist):
                 add = ['missing' , emt4[1], emt4[2]]
                 if add not in missing: missing.append(add)
     return missing + ctg_nms
+
 
 def finding(inputlist):## 구 input 함수
     dic05 =  makedic05(inputlist)
