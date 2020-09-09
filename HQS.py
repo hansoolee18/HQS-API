@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 
 import time
 import openpyxl
@@ -361,10 +364,10 @@ def digital(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', c
     else :  hourweek ='week'
     comparisionstatistics00 = comparisionstatistics
     comparisionstatistics = comparisionstatistics.replace('_','')
-    if comparisionstatistics == [ 'mean', 'max','min']:
+    if comparisionstatistics in [ 'mean', 'max','min']:
         sttstc =comparisionstatistics
     elif comparisionstatistics == 'median' : sttstc ='med'
-    else: sttstc ='percentage'
+    else: sttstc ='per'
 
     ## **************새 양식의 파일의 경우 Activity_paused, Activity_resumed로 변경 *******************       
     stimechk, etimechk ='MOVE_TO_FOREGROUND', 'MOVE_TO_BACKGROUND'  
@@ -482,10 +485,8 @@ def digital(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', c
                         ipt01[ctg_name][f'{date}h{i}'] = dic06[ctg_name][date][i] 
                 else: # absrel == 'abs'
                     ipt01[ctg_name][f'{date}h{i}'] = dic06[ctg_name][date][i] 
-#     return {'ipt01':ipt01, 'dic06':dic06, 'dic05':dic05,'dic04':dic04, \
-#                     'dic03':dic03, 'dic02':dic02, 'dic01':dic01, 'dic00':dic00}
-# def e1111():
-    # 묶음만들기 
+
+    ## 묶음만들기 
     grp10 = {}
     if tu in ['h','d','all']:
         for ctg_name in allctgnms:
@@ -596,8 +597,11 @@ def digital(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', c
                     add =  s_hour[ctg_name][strhour] 
                     grp40[ctg_name][-1].append(add)
     else: ## week인 경우
-        standard_week0 = standard_week1 =  standard_week2 =  standard_week3 = standard_week4 \
-        = standard_week5 = standard_week6 = [['Category', 'Time', 'Sum', 'Count']]
+        standard_week0, standard_week1,standard_week2 , standard_week3, standard_week4, \
+        standard_week5, standard_week6 = [['Category', 'Time', 'Sum', 'Count']],\
+        [['Category', 'Time', 'Sum', 'Count']],[['Category', 'Time', 'Sum', 'Count']],\
+        [['Category', 'Time', 'Sum', 'Count']],[['Category', 'Time', 'Sum', 'Count']],\
+        [['Category', 'Time', 'Sum', 'Count']],[['Category', 'Time', 'Sum', 'Count']]
         for wx , emt in enumerate(standard_week):
             if wx in [0,1] : continue
             standard_week0.append([emt[0], emt[1], emt[2], emt[3] ])
@@ -672,7 +676,6 @@ def digital(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', c
         final = {'grp70':grp70, 'grp60':grp60, 'grp50':grp50, 'grp40':grp40, 'grp30':grp30, 'grp21':grp21, \
                     'grp20':grp20, 'grp10':grp10, 'ipt01':ipt01, 'dic06':dic06, 'dic05':dic05,'dic04':dic04, \
                     'dic03':dic03, 'dic02':dic02, 'dic01':dic01, 'standard_hour': standard_hour, 'standard_week':standard_week }
-
     return final
 
 
@@ -695,11 +698,11 @@ wb = load_workbook('hcoding\\standarddata_weekwise.xlsx' , data_only=True)
 ws = wb.active 
 standard_week = []
 for rx, row in enumerate(ws.rows):
-    a,b,c,d,e,f,g,h,i,j,k,l,m,l,o,p = \
+    a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p = \
     row[0].value, row[1].value, row[2].value, row[3].value, row[4].value, row[5].value,\
     row[6].value, row[7].value, row[8].value, row[9].value, row[10].value, row[11].value,\
     row[12].value, row[13].value, row[14].value, row[15].value
-    standard_week.append([a,b,c,d,e,f,g,h,i,j,k,l,m,l,o,p]) 
+    standard_week.append([a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p]) 
 wb.close()
 
 
