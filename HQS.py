@@ -44,6 +44,7 @@ def oclock(y,m,d,h):
     rst = (datetime(y,m,d,h,59,59)-datetime(1970,1,1)).total_seconds()+1
     return rst-(3600*9)
 
+# A function that returns the summed value for the app usage history from 0 to 24 hours by hour
 def hourwiselist(mmr, ipt):
     ctg = findctg(ipt[1], ipt[2])
 
@@ -152,7 +153,7 @@ def make_s_week(standard_week0  ):
                 s_week0[ctg_name][hour]  = add
     return  s_week0 
 
-# a function that selects the package name of input data that is not in the category list and classifies it as unclassified
+# A function that selects the package name of input data that is not in the category list and classifies it as unclassified
 def miscategory(inputlist):
     dic01 = makedic01(inputlist)
     missing = []
@@ -164,7 +165,7 @@ def miscategory(inputlist):
                 if add not in missing: missing.append(add)
     return missing + ctg_nms
 
-
+# A function that checks how many years, months, days, and times of the input data the app usage time was recorded.
 def finding(inputlist):## 구 input 함수
     dic05 =  makedic05(inputlist)
     
@@ -181,6 +182,7 @@ def finding(inputlist):## 구 input 함수
     #     break
     return fninput   
 
+# A function that compares the application time corresponding to the social and communication categories of input data with the reference value data of 80 people
 def social(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', comparisonvaluetype='timeofday', comparisionstatistics='mean' ):
     grp70 = digital(inputlist,timeunit, timeunit_n,divisionmethod, comparisonvaluetype,comparisionstatistics )
     grp80 = {}
@@ -263,6 +265,7 @@ def printd5(dic05, filename):
 
 ##---------------------------- dic01 / doc04 추출함수 ---------------------------------------
 
+# A function created to extract the variable of dic01 for use in the miscategory function
 def makedic01(inputlist):
     dic00 = []
     for ipt in inputlist:
@@ -284,6 +287,7 @@ def makedic01(inputlist):
             dic01[keynm].append(inpt )
     return  dic01 
 
+# Function created to extract dic01 variable separately for use in finding function
 def makedic05(inputlist):
     dic01 = makedic01(inputlist)
     ## 카테고리 분류 / 사용시간 계산   
@@ -355,7 +359,7 @@ def makedic05(inputlist):
         dic05[dayipt] = dic04[dayipt]
     return dic05
 
-
+# A function to determine the usage time of an app category and compare it with the comparison value for quantification of the user's digital behavior
 def digital(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', comparisonvaluetype='timeofday', comparisionstatistics='mean' ):
     global grp21
     if  timeunit not in ['h', 'am', 'pm', 'all', 'd'] or \
