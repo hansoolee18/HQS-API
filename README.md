@@ -86,7 +86,7 @@ Examples
 
 When input data comes in, a function that compares each app name and package name with the existing app category list of 80 users, gives statistics of usage time by category according to the set time and number of days after matching, and compares it with the standard value of 80 app categories
 ```
-digital(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', comparisonvaluetype='timeofday', 
+digital(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', comparisonvaluetype='timeofday', statics = 'mean')
 ```
 
 **paramters:**
@@ -133,7 +133,7 @@ Examples
 #### 4. social
 
 ```
-social(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', comparisonvaluetype='timeofday', 
+social(inputlist, timeunit ='h', timeunit_n=1, divisionmethod ='section', comparisonvaluetype='timeofday', statics = 'mean')
 ```
 
 **paramters:**
